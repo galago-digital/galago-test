@@ -1,18 +1,55 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <div class="row">
+      <div class="col-5">
+        <AddUser 
+          @add-user="addUser"
+          v-bind:users="users"
+        />
+      </div>
+      <div class="col-12">
+        <Table 
+          v-bind:users="users"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import AddUser from '@/components/AddUser.vue'
+import Table from '@/components/Table.vue'
 
 export default {
-  name: 'Home',
+  data() {
+    return {
+      users: []
+    }
+  },
+  methods: {
+    addUser(user) {
+      this.users.push(user)
+    }
+  },
+  mounted() {
+    fetch('./users.json')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        for(let user of data.users) {
+          this.users.push(user)
+        }
+      })
+  },
   components: {
-    HelloWorld
+    AddUser, Table
   }
 }
 </script>
+
+<style scope>
+  .title {
+    margin: 30px 0;
+  }
+</style>
