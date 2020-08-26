@@ -1,4 +1,4 @@
-# rick-morty
+# galago
 
 ## Project setup
 ```
