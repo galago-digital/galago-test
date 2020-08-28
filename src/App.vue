@@ -5,6 +5,7 @@
 </template>
 
 <style lang="scss">
+// для чего здесь scss?
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

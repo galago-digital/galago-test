@@ -1,6 +1,8 @@
 <template>
 	<div>
 		<h5 class="title">Участники забега</h5>
+		<!-- речь скорее о сортировки, не о фильтрации, будет исправлено в поставновке тестового. сейчас не выполнено -->
+
 		<!-- <div class="form-group">
 			<label for="filter">Фильтрация по:</label>
 			<select id="filter" class="form-control" v-model="filter">
